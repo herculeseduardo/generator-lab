@@ -1,2 +1,2 @@
 # generator-lab
-testing generator
+Understanding Javascript (ES6) Generators
