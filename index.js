@@ -1,18 +1,9 @@
 const { getUserGenerator } = require('./generator')
+const { asyncRandomGenerator } = require('./asyncGenerators')
 
 const main = () => {
-  intervalTest()
   forOfTest()
-}
-
-const intervalTest = () => {
-  const gen = getUserGenerator()
-  let counter = 0
-  let interval = setInterval(() => {
-    if (counter === 5) clearInterval(interval)
-    console.log(`${counter} - ${JSON.stringify(gen.next().value)}`)
-    counter++
-  }, 100)
+  forAwaitTest()
 }
 
 const forOfTest = () => {
@@ -23,6 +14,22 @@ const forOfTest = () => {
     console.log(user)
     counter++
   }
+}
+
+const forAwaitTest = async () => {
+  const num = asyncRandomGenerator()
+  const list = []
+  /* for (let i = 0; i < 10; i++) {
+    const firstValue = num.next()
+    list.push(firstValue.value)
+  } */
+  let counter = 0
+  for await (const n of num) {
+    if (counter > 10) break
+    list.push(n)
+    counter++
+  }
+  console.log(list)
 }
 
 main()

@@ -11,6 +11,14 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/index.js",
       "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "read file",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/readFileTest.js",
+      "console": "integratedTerminal"
     }
   ]
 }

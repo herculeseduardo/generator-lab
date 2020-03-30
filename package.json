@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "interval": "node index.js",
+    "clusters": "node cluster.js",
+    "start": "npm run interval && npm run clusters"
   },
   "repository": {
     "type": "git",

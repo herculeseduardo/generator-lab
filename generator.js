@@ -1,3 +1,5 @@
+const { random } = require('./helper')
+
 function * getUserGenerator () {
   const userList = [
     { id: 1, area: 'south', score: 172, name: 'peter' },
@@ -15,8 +17,8 @@ function * getUserGenerator () {
     { id: 13, area: 'west', score: 333, name: 'phil' }
   ]
   while (true) {
-    const random = Math.floor(Math.random() * 13 + 1)
-    yield userList.filter(item => item.id === random)
+    const num = random(1, 13)
+    yield userList.filter(item => item.id === num)
   }
 }
 
